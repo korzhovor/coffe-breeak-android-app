@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         return editText.getText();
     }
 
+    @SuppressLint("WrongViewCast")
     public void updateCheckBoxes(View view) {
         //Обновляет global boolean'ы
         CheckBox milk = (CheckBox) findViewById(R.id.cb_milk);
@@ -90,7 +92,9 @@ public class MainActivity extends AppCompatActivity {
         hasHoney = honey.isChecked();
         hasMarshmallow = marshmallow.isChecked();
 
-        CheckBox size = (CheckBox) findViewById(R.id.is_big);
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch size = (Switch) findViewById(R.id.is_big);
+
+        //CheckBox size = (CheckBox) findViewById(R.id.is_big);
         largePortion = size.isChecked();
 
         display();
